@@ -2,14 +2,16 @@
 
 ```mermaid
 sequenceDiagram
-    participant S as Сервис
+    participant W as Веб-интерфейс жильца
+    participant S as Внешний сервис
     participant H as D-01 Хаб
     participant D as D-04 Датчик температуры и влажности
     participant B as D-05 Батарея
     participant C as D-06 Кондиционер
     participant U as D-07 Увлажнитель
     alt 🔴 D-01 Хаб
-        S->>H: Запрос изменения профиля
+        W->>S: Запрос изменения профиля
+        S->>H: Передать запрос хабу
         H->>H: Активный профиль вне согласованных пределов
         Note over H: Нарушение G-01
     else 🔴 D-02 Колонка
