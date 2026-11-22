@@ -15,7 +15,6 @@ stateDiagram-v2
     state "C · Ограничитель климата" as C
     state "P · Проверка обновлений" as P
     state "D-02 · Колонка" as K
-    state "D-02 · Тракт звука охраны" as Ks
     state "D-03 · Датчик движения" as D
     state "D-04 · Датчик температуры и влажности" as E
     state "D-05 · Батарея" as B
@@ -68,7 +67,6 @@ stateDiagram-v2
     C --> A: F-13 Результат для индикации
     C --> U: F-13 Результат для индикации
     Vc --> M: F-14 Уровень угрозы или состояние захвата
-    M --> Ks: F-15 Предупреждение или сирена
     M --> N: F-16 Защищённое уведомление
     N --> Service: F-16 Передача уведомления
     Service --> Web: F-16 Доставка уведомления
@@ -81,7 +79,7 @@ stateDiagram-v2
     classDef elevating fill:#ffe0b3,stroke:#a54f00,color:#492200,stroke-width:2px
     classDef external fill:#e8eaed,stroke:#59616b,color:#24292f,stroke-width:2px
     class N,R,K,D,E,B,A,U,V,W untrusted
-    class T,Ks trusted
+    class T trusted
     class Q,M,C,P,Vc elevating
     class Service,Web external
 ```
